@@ -1,4 +1,14 @@
-node_modules
+node_modules/
+functions/
+functions
 .idea
 
 .env
+.firebaserc
+
+firebase.json
+firestore.indexes.json
+firestore.rules
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
