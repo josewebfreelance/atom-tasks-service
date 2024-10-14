@@ -3,6 +3,8 @@ functions/
 public/
 .idea/
 
+src/config/sdk-config.json
+
 .env
 .firebaserc
 
