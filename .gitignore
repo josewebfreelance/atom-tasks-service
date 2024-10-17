@@ -3,7 +3,7 @@ functions/
 public/
 .idea/
 
-src/config/sdk-config.json
+src/config/serviceAccountKey.json
 
 .env
 .firebaserc

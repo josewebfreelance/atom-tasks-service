@@ -1,8 +1,11 @@
-export interface User {
-    id?: string,
+export interface UserLogin {
     email: string,
     password: string,
-    name: string,
-    lastName: string,
-    creation: FirebaseFirestore.Timestamp
+}
+
+export interface User {
+    userId?: string,
+    email: string,
+    password: string,
+    displayName: string
 }

@@ -4,9 +4,9 @@ const emailCheck = {
     isEmail: true,
     errorMessage: 'Correo inválido',
     isLength: {
-        options: {max: 25},
+        options: {max: 50},
         errorMessage: {
-            max: 'Máximo 25 caracteres'
+            max: 'Máximo 50 caracteres'
         }
     }
 };
@@ -30,21 +30,12 @@ const loginCheck = checkSchema({
 const registerCheck = checkSchema({
     email: emailCheck,
     password: passwordCheck,
-    name: {
+    displayName: {
         isLength: {
-            options: {min: 6, max: 25},
+            options: {min: 6, max: 50},
             errorMessage: {
                 min: 'Mínimo 6 caracteres',
-                max: 'Máximo 25 caracteres'
-            }
-        }
-    },
-    lastName: {
-        isLength: {
-            options: {min: 6, max: 25},
-            errorMessage: {
-                min: 'Mínimo 6 caracteres',
-                max: 'Máximo 25 caracteres'
+                max: 'Máximo 50 caracteres'
             }
         }
     }

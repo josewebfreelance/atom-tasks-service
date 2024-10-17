@@ -1,7 +1,6 @@
 import {Request, Response} from 'express';
 import {handleHttpError} from "../util/handleHttp";
 import {deleteItem, post, put, search} from "../services/tasksService";
-import {errorValidatorSchema} from "../util/util";
 
 const getTasks = async (req: Request, res: Response) => {
     try {
@@ -14,8 +13,6 @@ const getTasks = async (req: Request, res: Response) => {
 
 const createTask = async (req: Request, res: Response) => {
     try {
-        errorValidatorSchema(req, res);
-
         const response = await post(req.body);
         res.send(response);
     } catch (e: any) {
@@ -25,8 +22,6 @@ const createTask = async (req: Request, res: Response) => {
 
 const updateTask = async (req: Request, res: Response) => {
     try {
-        errorValidatorSchema(req, res);
-
         const response = await put(req.params.id, req.body);
         res.send(response);
     } catch (e: any) {

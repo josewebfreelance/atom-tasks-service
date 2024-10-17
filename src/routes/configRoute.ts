@@ -1,6 +1,7 @@
 import express from "express";
 import {register} from "../controllers/configController";
-import {registerCheck} from "../middlewares/fieldCheck";
+import {registerCheck} from "../middlewares/fieldCheckScheme";
+import {validateRequest} from "../middlewares/validateRequest";
 
 const router = express.Router();
 
@@ -31,6 +32,6 @@ const router = express.Router();
  *       200:
  *         description: A successful response
  */
-router.post('/api/users', registerCheck, register);
+router.post('/api/users', registerCheck, validateRequest, register);
 
 export default router;

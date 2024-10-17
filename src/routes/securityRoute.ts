@@ -1,6 +1,7 @@
 import express from "express";
 import {login} from "../controllers/securityController";
-import {loginCheck} from "../middlewares/fieldCheck";
+import {loginCheck} from "../middlewares/fieldCheckScheme";
+import {validateRequest} from "../middlewares/validateRequest";
 
 const router = express.Router();
 
@@ -25,6 +26,6 @@ const router = express.Router();
  *       200:
  *         description: A successful response
  */
-router.post('/api/auth/login', loginCheck, login);
+router.post('/api/auth/login', loginCheck, validateRequest, login);
 
 export default router;
