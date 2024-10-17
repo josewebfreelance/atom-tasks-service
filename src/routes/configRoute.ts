@@ -20,13 +20,9 @@ const router = express.Router()
  *             properties:
  *               email:
  *                 type: string
- *               name:
- *                 type: string
- *               lastName:
+ *               displayName:
  *                 type: string
  *               password:
- *                 type: string
- *               creation:
  *                 type: string
  *     responses:
  *       200:
