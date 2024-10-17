@@ -1,23 +1,23 @@
-import {UserLogin} from "../models/User";
+import { UserLogin } from '../models/User'
 import axios from 'axios'
-import {handleHttpSuccess} from "../util/handleHttp";
+import { handleHttpSuccess } from '../util/handleHttp'
 
 const find = async (values: UserLogin): Promise<any> => {
-    const response = await axios.post(
+  const response = await axios.post(
         `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.API_KEY}`,
         {
-            email: values.email,
-            password: values.password,
-            returnSecureToken: true
+          email: values.email,
+          password: values.password,
+          returnSecureToken: true
         }
-    );
+  )
 
-    return handleHttpSuccess({
-        idToken: response.data.idToken,
-        refreshToken: response.data.refreshToken,
-        expiresIn: response.data.expiresIn,
-        localId: response.data.localId
-    })
+  return handleHttpSuccess({
+    idToken: response.data.idToken,
+    refreshToken: response.data.refreshToken,
+    expiresIn: response.data.expiresIn,
+    localId: response.data.localId
+  })
 }
 
-export {find}
+export { find }

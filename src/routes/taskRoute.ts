@@ -1,10 +1,10 @@
-import express from "express";
-import {createTask, deleteTask, getTasks, updateTask} from "../controllers/tasksController";
-import {taskCheck} from "../middlewares/fieldCheckScheme";
-import {validateRequest} from "../middlewares/validateRequest";
-import {verifyToken} from "../middlewares/verifyToken";
+import express from 'express'
+import { createTask, deleteTask, getTasks, updateTask } from '../controllers/tasksController'
+import { taskCheck } from '../middlewares/fieldCheckScheme'
+import { validateRequest } from '../middlewares/validateRequest'
+import { verifyToken } from '../middlewares/verifyToken'
 
-const router = express.Router();
+const router = express.Router()
 
 /**
  * @swagger
@@ -23,7 +23,7 @@ const router = express.Router();
  *       200:
  *         description: A successful response
  */
-router.get('/api/tasks', verifyToken, getTasks);
+router.get('/api/tasks', verifyToken, getTasks)
 
 /**
  * @swagger
@@ -52,7 +52,7 @@ router.get('/api/tasks', verifyToken, getTasks);
  *       200:
  *         description: A successful response
  */
-router.post('/api/tasks', taskCheck, validateRequest, verifyToken, createTask);
+router.post('/api/tasks', taskCheck, validateRequest, verifyToken, createTask)
 
 /**
  * @swagger
@@ -87,7 +87,7 @@ router.post('/api/tasks', taskCheck, validateRequest, verifyToken, createTask);
  *       200:
  *         description: A successful response
  */
-router.put('/api/tasks/:id', taskCheck, validateRequest, verifyToken, updateTask);
+router.put('/api/tasks/:id', taskCheck, validateRequest, verifyToken, updateTask)
 
 /**
  * @swagger
@@ -106,6 +106,6 @@ router.put('/api/tasks/:id', taskCheck, validateRequest, verifyToken, updateTask
  *       200:
  *         description: A successful response
  */
-router.delete('/api/tasks/:id', verifyToken, deleteTask);
+router.delete('/api/tasks/:id', verifyToken, deleteTask)
 
-export default router;
+export default router
