@@ -1,19 +1,23 @@
-import {db} from "../config/db";
-import {passwordEncrypt} from "../util/util";
+import { UserLogin } from '../models/User'
+import axios from 'axios'
+import { handleHttpSuccess } from '../util/handleHttp'
 
-const collectionName = 'users';
+const find = async (values: UserLogin): Promise<any> => {
+  const response = await axios.post(
+        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.API_KEY}`,
+        {
+          email: values.email,
+          password: values.password,
+          returnSecureToken: true
+        }
+  )
 
-const find = async (values: any): Promise<any> => {
-    const result = await db.collection(collectionName).where('email', '==', values.email).get();
-
-    if (result.empty) return null;
-    const data = result.docs[0].data();
-
-    const newPassword = passwordEncrypt(values.password);
-
-    if (data.password !== newPassword) throw new Error('Contraseña inválida');
-
-    return data;
+  return handleHttpSuccess({
+    idToken: response.data.idToken,
+    refreshToken: response.data.refreshToken,
+    expiresIn: response.data.expiresIn,
+    localId: response.data.localId
+  })
 }
 
-export {find}
+export { find }
