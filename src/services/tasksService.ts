@@ -30,7 +30,13 @@ const search = async (search: any) => {
     const result = await db.collection(collectionName).get()
 
     result.forEach((doc) => {
-      results.push({ id: doc.id, ...doc.data() })
+      results.push({
+        id: doc.id,
+        title: doc.data().title,
+        description: doc.data().description,
+        status: doc.data().status,
+        creation: doc.createTime.toDate()
+      })
     })
   }
 
@@ -43,7 +49,7 @@ const post = async (entity: Task): Promise<any> => {
   const taskToSave = {
     title: entity.title,
     description: entity.description,
-    status: true,
+    status: false,
     creation: admin.firestore.Timestamp.now()
   }
 
