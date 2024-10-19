@@ -1,0 +1,17 @@
+node_modules/
+functions/
+public/
+.idea/
+dist
+
+src/config/serviceAccountKey.json
+
+.env
+.firebaserc
+
+firebase.json
+firestore.indexes.json
+firestore.rules
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
