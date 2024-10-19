@@ -2,6 +2,7 @@ node_modules/
 functions/
 public/
 .idea/
+dist
 
 src/config/serviceAccountKey.json
 
