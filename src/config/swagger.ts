@@ -8,9 +8,14 @@ const options = {
       title: 'Tasks services',
       version: '1.0.0',
       description: 'Tasks system'
-    }
+    },
+    servers: [
+      {
+        url: `https://us-central1-atom-task-application.cloudfunctions.net/atom-tasks-service`
+      }
+    ],
   },
-  apis: ['./src/routes/*.ts'] // Path to your API routes
+  apis: ['./src/routes/*.ts', '../routes/*.js'] // Path to your API routes
 }
 
 const specs = swaggerJsdoc(options)

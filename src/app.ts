@@ -18,10 +18,8 @@ app.use(securityRoute)
 app.use(configRoute)
 app.use(taskRoute)
 
-app.listen(+PORT, () => console.log(`Process started in ${+PORT}`));
+// app.listen(+PORT, () => console.log(`Process started in ${+PORT}`));
 
-/*
 exports['atom-tasks-service'] = (req: any, res: any) => {
   app(req, res)
 }
- */
